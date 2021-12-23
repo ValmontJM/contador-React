@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React CDM</title>
+
+    <!-- Instala REACt -->
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+
+    <!-- Babel  -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+<body>
+
+    <div id="root"></div>
+    
+    <!-- sin utilizar jsx ni babel
+    <script>
+        ReactDOM.render(
+            React.createElement("ol", null, 
+                React.createElement("li", null, "Hola mundo"),
+                React.createElement("li", null, "Esto es React"),
+                React.createElement("li", null, "Sin jsx")
+            ),
+            document.getElementById("root")
+        );
+    </script>
+    -->
+
+    <!-- Con Babel -->
+
+    <script type="text/babel"> 
+
+        // Utilizacion de componentes a la antigua
+
+        class Saludo extends React.Component {
+            render(){
+                return(
+                    <ul>
+                        <li>Buenos Días</li>
+                        <li>Buenas tardes</li>
+                        <li>Buenas Noches</li>
+                    </ul>
+                );
+            }
+            
+        }
+
+        /* Utilizacion de componentes actual
+
+        const Despedida = () => {
+            return (
+                <ol>
+                    <li>Adíos</li>
+                    <li>Hasta luego</li>
+                    <li>Que estes bien</li>
+                </ol>
+            );
+        }*/
+
+
+        const Interpolar = () => {
+
+            const [numero, setNumero] = React.useState(0)
+
+           // setInterval(() => {
+            //    setNumero(numero + 1);
+            //}, 1500);
+
+            return(
+                <div>
+                    <h1> numeros {numero} </h1>
+                    <hr/>
+                </div>
+            );
+        }
+
+        // para llamar el metodo se crean etiquetas
+
+        ReactDOM.render(
+            <Interpolar/>,
+            document.getElementById("root")
+        );
+
+        
+    </script>
+
+
+</body>
+</html>
